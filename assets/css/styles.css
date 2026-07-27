@@ -113,6 +113,10 @@ a:hover {
   letter-spacing: -0.03em;
 }
 
+.brand-domain {
+  color: var(--accent);
+}
+
 .brand-tagline {
   margin-top: 0.22rem;
   color: var(--muted);
@@ -249,10 +253,10 @@ html[data-decision="yes"] {
   --surface: #111111;
   --text: #ffffff;
   --muted: #ffffff;
-  --accent: #ffffff;
   --accent-soft: #d2d2d2;
   --border: rgba(255, 255, 255, 0.28);
   --focus: #ffffff;
+  --home-interaction-color: #ffffff;
 }
 
 html[data-decision="no"] {
@@ -261,10 +265,10 @@ html[data-decision="no"] {
   --surface: #f5f5f5;
   --text: #0b0b0b;
   --muted: #0b0b0b;
-  --accent: #0b0b0b;
   --accent-soft: #3d3d3d;
   --border: rgba(11, 11, 11, 0.25);
   --focus: #000000;
+  --home-interaction-color: #0b0b0b;
 }
 
 .home-page {
@@ -273,6 +277,14 @@ html[data-decision="no"] {
   display: flex;
   flex-direction: column;
   overflow-x: hidden;
+}
+
+.home-page a:hover {
+  color: var(--home-interaction-color);
+}
+
+.home-page .site-nav a::after {
+  background: var(--home-interaction-color);
 }
 
 .decision-main {
@@ -326,6 +338,18 @@ html[data-decision="no"] .decision-answer {
   font-size: clamp(1.05rem, 2.1vw, 1.32rem);
   font-weight: 650;
   line-height: 1.5;
+}
+
+.decision-message-result--no {
+  display: none;
+}
+
+html[data-decision="no"] .decision-message-result--yes {
+  display: none;
+}
+
+html[data-decision="no"] .decision-message-result--no {
+  display: inline;
 }
 
 .decision-message a {
