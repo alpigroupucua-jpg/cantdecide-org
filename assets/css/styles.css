@@ -474,15 +474,19 @@ html[data-decision="no"] .decision-message-result--no {
 
 .founder-placeholder h2 {
   max-width: 35rem;
-  margin: 0.4rem 0 0.8rem;
+  margin: 0 0 clamp(1.75rem, 3vw, 2.5rem);
   font-family: var(--display-font);
   font-size: clamp(2rem, 4vw, 3.3rem);
   line-height: 1.08;
 }
 
 .founder-message {
-  max-width: 38rem;
+  width: 100%;
+  max-width: none;
   color: var(--muted);
+  hyphens: auto;
+  text-align: justify;
+  text-justify: inter-word;
 }
 
 .founder-message p {
@@ -813,6 +817,12 @@ html[data-decision="no"] .decision-message-result--no {
 }
 
 @media (max-width: 42rem) {
+  .founder-message {
+    hyphens: none;
+    text-align: left;
+    text-justify: auto;
+  }
+
   .brand-tagline {
     font-size: 0.62rem;
   }
