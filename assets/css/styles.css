@@ -1,16 +1,16 @@
 :root {
   color-scheme: light;
-  --bg: #fbf8f2;
-  --surface: #ffffff;
-  --surface-strong: #f0e9db;
-  --text: #1e2d2a;
-  --muted: #52615d;
-  --accent: #a34324;
-  --accent-secondary: #0c6864;
-  --accent-highlight: #dfaa3f;
-  --accent-soft: #e9b59c;
-  --border: rgba(30, 45, 42, 0.18);
-  --focus: #005fcc;
+  --bg: #fff8e8;
+  --surface: #fffdf8;
+  --surface-strong: #ffe7b3;
+  --text: #17110e;
+  --muted: #17110e;
+  --accent: #b2381b;
+  --accent-secondary: #9e1b1b;
+  --accent-highlight: #f2b632;
+  --accent-soft: #f3a37f;
+  --border: rgba(158, 27, 27, 0.22);
+  --focus: #8f1d14;
   --display-font: "Avenir Next", Avenir, "Segoe UI", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
   --body-font: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   --page-pad: clamp(1rem, 4vw, 4.5rem);
@@ -248,11 +248,11 @@ html[data-decision="yes"] {
   --bg: #090909;
   --surface: #111111;
   --text: #ffffff;
-  --muted: #e3e3e3;
+  --muted: #ffffff;
   --accent: #ffffff;
   --accent-soft: #d2d2d2;
   --border: rgba(255, 255, 255, 0.28);
-  --focus: #ffd166;
+  --focus: #ffffff;
 }
 
 html[data-decision="no"] {
@@ -260,11 +260,11 @@ html[data-decision="no"] {
   --bg: #ffffff;
   --surface: #f5f5f5;
   --text: #0b0b0b;
-  --muted: #292929;
+  --muted: #0b0b0b;
   --accent: #0b0b0b;
   --accent-soft: #3d3d3d;
   --border: rgba(11, 11, 11, 0.25);
-  --focus: #005fcc;
+  --focus: #000000;
 }
 
 .home-page {
@@ -351,8 +351,8 @@ html[data-decision="no"] .decision-answer {
 /* Interior pages share a calm editorial system. */
 .content-page {
   background:
-    radial-gradient(circle at 92% 4%, rgba(223, 170, 63, 0.2), transparent 23rem),
-    radial-gradient(circle at 5% 30%, rgba(12, 104, 100, 0.08), transparent 20rem),
+    radial-gradient(circle at 92% 4%, rgba(242, 182, 50, 0.22), transparent 23rem),
+    radial-gradient(circle at 5% 30%, rgba(158, 27, 27, 0.07), transparent 20rem),
     var(--bg);
 }
 
@@ -534,12 +534,12 @@ html[data-decision="no"] .decision-answer {
   margin-top: clamp(4rem, 10vw, 8rem);
   padding: clamp(2rem, 6vw, 5rem);
   border-radius: 0.4rem;
-  background: #123f3c;
-  color: var(--bg);
+  background: #ffe09a;
+  color: var(--text);
 }
 
 .next-step .eyebrow {
-  color: #f3c966;
+  color: #8f1d14;
 }
 
 .next-step h2 {

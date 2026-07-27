@@ -11,8 +11,10 @@ manager, framework, build step, database, cookie, or third-party runtime
 dependency.
 
 - `index.html` contains the single-screen random decision experience.
-- The remaining HTML files contain the mission, education, responsible-use,
-  contact, privacy, terms, and 404 pages.
+- The remaining HTML files contain the mission, Decision Science,
+  responsible-use, contact, privacy, terms, and 404 pages. The Decision Science
+  page intentionally keeps its existing `know-yourself.html` filename so
+  published links remain stable.
 - `assets/css/styles.css` contains the shared responsive design system and the
   YES/NO themes.
 - `assets/js/decision.js` chooses exactly once per homepage load. It uses
