@@ -480,10 +480,17 @@ html[data-decision="no"] .decision-message-result--no {
   line-height: 1.08;
 }
 
-.founder-placeholder p:last-child {
+.founder-message {
   max-width: 38rem;
-  margin: 0;
   color: var(--muted);
+}
+
+.founder-message p {
+  margin: 0;
+}
+
+.founder-message p + p {
+  margin-top: 1.15rem;
 }
 
 .mission-grid,
