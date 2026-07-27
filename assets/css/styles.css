@@ -773,6 +773,13 @@ html[data-decision="no"] .decision-message-result--no {
 
 @media (min-width: 64rem) {
   .decision-message {
+    width: max-content;
+    max-width: none;
+    white-space: nowrap;
+  }
+
+  .decision-message__line {
+    display: inline-block;
     white-space: nowrap;
   }
 }
