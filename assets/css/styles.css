@@ -771,6 +771,12 @@ html[data-decision="no"] .decision-message-result--no {
   }
 }
 
+@media (min-width: 64rem) {
+  .decision-message {
+    white-space: nowrap;
+  }
+}
+
 @media (min-width: 42.01rem) {
   .mission-grid,
   .topic-grid {
