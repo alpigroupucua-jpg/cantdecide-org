@@ -769,6 +769,10 @@ html[data-decision="no"] .decision-message-result--no {
   line-height: 1.45;
 }
 
+.article-body blockquote p + p {
+  margin-top: 0.75rem;
+}
+
 .article-source {
   margin-top: clamp(4rem, 10vw, 7rem);
   padding: clamp(1.5rem, 5vw, 3rem);
@@ -822,6 +826,46 @@ html[data-decision="no"] .decision-message-result--no {
   margin: 1.5rem 0 0;
   padding-top: 1.5rem;
   border-top: 1px solid var(--border);
+}
+
+.reference-list {
+  margin-top: 2rem;
+}
+
+.reference-entry {
+  padding-top: 0.25rem;
+}
+
+.reference-entry + .reference-entry {
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border);
+}
+
+.reference-type {
+  margin: 0 0 0.35rem;
+  color: var(--accent);
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.reference-entry h3 {
+  margin: 0;
+  font-family: var(--display-font);
+  font-size: clamp(1.25rem, 2.6vw, 1.65rem);
+  line-height: 1.25;
+}
+
+.reference-details {
+  margin: 0.7rem 0 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.reference-entry .source-links {
+  margin: 1rem 0 0;
 }
 
 .article-footer-navigation {
