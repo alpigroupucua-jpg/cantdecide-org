@@ -1,0 +1,23 @@
+source: /
+
+paths:
+  uploads: assets/img
+  static: /
+
+collections_config:
+  pages:
+    path: ""
+    name: Website pages
+    icon: wysiwyg
+    url: /[full_slug].html
+    glob:
+      - "*.html"
+      - "!404.html"
+    disable_add: true
+    disable_add_folder: true
+    disable_file_actions: true
+
+collection_groups:
+  - heading: Content
+    collections:
+      - pages
