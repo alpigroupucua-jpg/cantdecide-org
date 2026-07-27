@@ -327,12 +327,14 @@ html[data-decision="no"] .decision-answer {
 }
 
 .decision-support {
+  position: relative;
+  z-index: 1;
   max-width: 58rem;
   margin: clamp(2rem, 5vh, 3.25rem) auto 0;
 }
 
 .decision-message {
-  max-width: 45rem;
+  max-width: 58rem;
   margin: 0 auto;
   color: var(--text);
   font-size: clamp(1.05rem, 2.1vw, 1.32rem);
@@ -356,6 +358,12 @@ html[data-decision="no"] .decision-message-result--no {
   color: inherit;
   text-decoration-color: var(--text);
   text-decoration-thickness: 0.1em;
+  white-space: nowrap;
+}
+
+.decision-message a:focus {
+  outline: 0.2rem solid var(--focus);
+  outline-offset: 0.25rem;
 }
 
 .disclaimer {
