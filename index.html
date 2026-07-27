@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Can't Decide? Get a Random Yes or No | CantDecide.org</title>
+    <title data-editable="source" data-path="/index.html" data-key="browser-title" data-type="span">Can't Decide? Get a Random Yes or No | CantDecide.org</title>
     <meta name="description" content="Get an instant, completely random yes or no—then learn how thoughtful decisions really work.">
     <link rel="canonical" href="https://cantdecide.org/">
     <meta property="og:type" content="website">
@@ -11,12 +11,12 @@
     <meta property="og:title" content="Can't decide? Start here.">
     <meta property="og:description" content="A random yes or no. A thoughtful place to learn how decisions really work.">
     <meta property="og:url" content="https://cantdecide.org/">
-    <meta property="og:image" content="https://cantdecide.org/assets/img/og-card.png">
+    <meta property="og:image" content="https://cantdecide.org/assets/img/og-card-v2.png">
     <meta property="og:image:alt" content="CantDecide.org — Be brave. Take responsibility. Make a decision.">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Can't decide? Start here.">
     <meta name="twitter:description" content="A random yes or no. A thoughtful place to learn how decisions really work.">
-    <meta name="twitter:image" content="https://cantdecide.org/assets/img/og-card.png">
+    <meta name="twitter:image" content="https://cantdecide.org/assets/img/og-card-v2.png">
     <link rel="icon" href="assets/icons/favicon.png" type="image/png">
     <link rel="stylesheet" href="assets/css/styles.css">
     <script src="assets/js/decision.js"></script>
@@ -30,7 +30,11 @@
         <span class="brand-name">CantDecide.org</span>
         <span class="brand-tagline">Be brave. Take responsibility. Make a decision.</span>
       </a>
-      <nav class="site-nav" aria-label="Primary navigation">
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-navigation">
+        <span class="menu-toggle-label">Menu</span>
+        <span class="menu-toggle-icon" aria-hidden="true"><span></span><span></span></span>
+      </button>
+      <nav id="primary-navigation" class="site-nav" aria-label="Primary navigation">
         <a href="index.html" aria-current="page">Home</a>
         <a href="mission.html">Our Mission</a>
         <a href="know-yourself.html">Know Yourself</a>
@@ -41,11 +45,10 @@
 
     <main id="main-content" class="decision-main">
       <section class="decision-panel" aria-labelledby="decision-answer">
-        <p class="eyebrow">The answer is</p>
         <h1 id="decision-answer" class="decision-answer">YES</h1>
         <div class="decision-support">
-          <p class="disclaimer"><strong>For entertainment only.</strong> This result is random and is not advice. For important decisions, consider the facts, your circumstances, and qualified professional guidance when appropriate.</p>
-          <a class="text-link" href="know-yourself.html">Learn how decisions really work <span aria-hidden="true">→</span></a>
+          <p class="decision-message" data-editable="source" data-path="/index.html" data-key="supporting-message" data-type="text">Flipping the coin was a fun idea. Now <a href="know-yourself.html">learn more about how decision-making works</a>.</p>
+          <p class="disclaimer" data-editable="source" data-path="/index.html" data-key="disclaimer" data-type="text">CantDecide.org is provided for entertainment and educational purposes only. Every YES or NO result is generated completely at random and must not be considered advice or a recommendation. You—and only you—are responsible for the decisions you make. We share educational content, our own thoughts, and links to official scientific research to encourage thoughtful decision-making. Nothing on this website should replace qualified medical, legal, financial, psychological, or other professional advice where appropriate.</p>
         </div>
       </section>
     </main>
@@ -59,7 +62,7 @@
         <a href="terms.html">Terms</a>
         <a href="contact.html">Contact</a>
       </nav>
-      <p>© <span data-current-year>2026</span> CantDecide.org</p>
+      <p>© <span data-current-year>2026</span> <span data-editable="source" data-path="/index.html" data-key="footer-name" data-type="span">CantDecide.org</span></p>
     </footer>
   </body>
 </html>
