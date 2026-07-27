@@ -300,6 +300,16 @@ html[data-decision="no"] {
   text-align: center;
 }
 
+.reflection-prompt {
+  margin: 0 0 clamp(1.25rem, 3vh, 2rem);
+  color: var(--text);
+  font-size: clamp(0.92rem, 1.4vw, 1.02rem);
+  font-weight: 650;
+  letter-spacing: 0.02em;
+  line-height: 1.4;
+  opacity: 0.72;
+}
+
 .eyebrow {
   margin: 0 0 0.65rem;
   color: var(--accent);
@@ -822,6 +832,13 @@ html[data-decision="no"] .decision-message-result--no {
 
   .article-placeholder {
     margin-top: 1.5rem;
+  }
+}
+
+@media (max-height: 50rem) and (min-width: 43rem) {
+  .decision-main {
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
   }
 }
 
