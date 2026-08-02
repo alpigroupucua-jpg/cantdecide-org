@@ -10,6 +10,7 @@ export const PUBLISHED_ARTICLE_SLUGS = new Set([
   "why-everything-seems-to-go-wrong-in-a-bad-mood",
   "the-invisible-push",
   "how-the-brain-makes-decisions",
+  "how-to-stop-overthinking-a-decision",
 ]);
 
 function jsonResponse(payload, status = 200, extraHeaders = {}) {
