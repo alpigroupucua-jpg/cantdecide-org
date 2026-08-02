@@ -12,7 +12,6 @@ for file in \
   404.html \
   contact.html \
   index.html \
-  know-yourself.html \
   mission.html \
   privacy.html \
   responsible-use.html \
@@ -20,6 +19,7 @@ for file in \
   robots.txt \
   sitemap.xml \
   _headers \
+  _redirects \
   _routes.json
 do
   cp "$project_dir/$file" "$client_dir/$file"

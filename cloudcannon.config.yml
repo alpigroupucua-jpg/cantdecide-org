@@ -12,6 +12,7 @@ collections_config:
     url: /[full_slug].html
     glob:
       - "*.html"
+      - "decision-science/index.html"
       - "!404.html"
     disable_add: true
     disable_add_folder: true

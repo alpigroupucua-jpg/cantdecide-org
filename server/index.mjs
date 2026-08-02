@@ -1,5 +1,11 @@
 import { handleArticleViewRequest } from "./article-view-api.mjs";
 
+const LEGACY_DECISION_SCIENCE_PATHS = new Set([
+  "/know-yourself",
+  "/know-yourself/",
+  "/know-yourself.html",
+]);
+
 function articleSlugFromPath(pathname) {
   const prefix = "/api/views/";
   if (!pathname.startsWith(prefix)) {
@@ -21,6 +27,13 @@ function articleSlugFromPath(pathname) {
 export default {
   async fetch(request, env) {
     const url = new URL(request.url);
+
+    if (LEGACY_DECISION_SCIENCE_PATHS.has(url.pathname)) {
+      const redirectUrl = new URL("/decision-science/", request.url);
+      redirectUrl.search = url.search;
+      return Response.redirect(redirectUrl, 301);
+    }
+
     const articleSlug = articleSlugFromPath(url.pathname);
 
     if (articleSlug !== null) {

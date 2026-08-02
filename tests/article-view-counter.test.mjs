@@ -358,12 +358,49 @@ test("the deployment worker routes only the view API through the function", asyn
   assert.equal(apiResponse.status, 200);
   assert.deepEqual(assetRequests, []);
 
+  for (const legacyPath of [
+    "/know-yourself",
+    "/know-yourself/",
+    "/know-yourself.html",
+  ]) {
+    const redirectResponse = await worker.fetch(
+      new Request(`https://cantdecide.org${legacyPath}?from=test`),
+      environment
+    );
+    assert.equal(redirectResponse.status, 301);
+    assert.equal(
+      redirectResponse.headers.get("Location"),
+      "https://cantdecide.org/decision-science/?from=test"
+    );
+  }
+  assert.deepEqual(assetRequests, []);
+
+  const sectionResponse = await worker.fetch(
+    new Request("https://cantdecide.org/decision-science/"),
+    environment
+  );
+  assert.equal(sectionResponse.status, 200);
+
+  const articleResponse = await worker.fetch(
+    new Request("https://cantdecide.org/decision-science/the-invisible-push/"),
+    environment
+  );
+  assert.equal(articleResponse.status, 200);
+  assert.deepEqual(assetRequests, [
+    "/decision-science/",
+    "/decision-science/the-invisible-push/",
+  ]);
+
   const assetResponse = await worker.fetch(
     new Request("https://cantdecide.org/assets/css/styles.css"),
     environment
   );
   assert.equal(assetResponse.status, 200);
-  assert.deepEqual(assetRequests, ["/assets/css/styles.css"]);
+  assert.deepEqual(assetRequests, [
+    "/decision-science/",
+    "/decision-science/the-invisible-push/",
+    "/assets/css/styles.css",
+  ]);
 
   const missingResponse = await worker.fetch(
     new Request("https://cantdecide.org/missing"),
@@ -371,6 +408,8 @@ test("the deployment worker routes only the view API through the function", asyn
   );
   assert.equal(missingResponse.status, 200);
   assert.deepEqual(assetRequests, [
+    "/decision-science/",
+    "/decision-science/the-invisible-push/",
     "/assets/css/styles.css",
     "/missing",
     "/404.html",
