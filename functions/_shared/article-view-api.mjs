@@ -11,6 +11,7 @@ export const PUBLISHED_ARTICLE_SLUGS = new Set([
   "the-invisible-push",
   "how-the-brain-makes-decisions",
   "how-to-stop-overthinking-a-decision",
+  "sunk-cost-fallacy",
 ]);
 
 function jsonResponse(payload, status = 200, extraHeaders = {}) {
