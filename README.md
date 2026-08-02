@@ -6,9 +6,9 @@ responsible decision-making.
 
 ## Architecture
 
-The site uses only HTML5, CSS3, and vanilla JavaScript. There is no package
-manager, framework, build step, database, cookie, or third-party runtime
-dependency.
+The site uses HTML5, CSS3, vanilla JavaScript, a dependency-free Cloudflare
+Pages Function, and Cloudflare D1 for the public article-view counter. There is
+no package manager, framework, cookie, or third-party runtime dependency.
 
 - `index.html` contains the single-screen random decision experience.
 - The remaining HTML files contain the mission, Decision Science,
@@ -20,6 +20,14 @@ dependency.
 - `assets/js/decision.js` chooses exactly once per homepage load. It uses
   `crypto.getRandomValues()` when available and falls back to `Math.random()`.
 - `assets/js/main.js` renders the chosen answer and the current copyright year.
+- `assets/js/article-views.mjs` qualifies article opens and displays public view
+  counts only after the count reaches 100.
+- `functions/api/views/[slug].js` handles same-origin article-view GET and POST
+  requests through the `ARTICLE_VIEWS_DB` D1 binding.
+- `migrations/` contains the versioned D1 schema. `drizzle/` mirrors that
+  migration for the connected Sites deployment package.
+- `scripts/build-site.sh` prepares the existing static output plus the Sites
+  Worker adapter without adding a package manager.
 
 The educational page deliberately contains no invented research claims,
 statistics, or quotations. Its source labels are placeholders for later,
@@ -85,8 +93,8 @@ URL.
 
 ### Environment variables and secrets
 
-This static project requires **no environment variables or repository
-secrets**.
+This project requires no repository secrets. Its only runtime binding is the
+Cloudflare D1 binding named `ARTICLE_VIEWS_DB`.
 
 GitHub access tokens, CloudCannon integration credentials, Cloudflare API
 credentials, and session secrets must remain managed by those providers. Never
@@ -131,8 +139,36 @@ review before production.
 ## Local preview
 
 Open `index.html` directly in a browser, or run any basic static file server in
-the project directory. No CMS account, package installation, environment
-variable, or build step is required for local development.
+the project directory. The article pages remain fully readable when the local
+view-count API is unavailable.
+
+Run focused counter tests with:
+
+`node --test tests/article-view-counter.test.mjs`
+
+Prepare the connected Sites deployment output with:
+
+`./scripts/build-site.sh`
+
+## Publishing another Decision Science article
+
+To enable the counter on a newly published article:
+
+1. Add `assets/js/article-views.mjs` as a module script.
+2. Add the canonical article slug to the article body’s
+   `data-article-slug` attribute.
+3. Add an empty, hidden `[data-article-view-count]` span to the existing
+   article metadata row.
+4. Add the slug to `PUBLISHED_ARTICLE_SLUGS` in
+   `functions/_shared/article-view-api.mjs`.
+
+No database seed or manually created counter row is required.
+
+The counter is intentionally privacy-conscious and best effort. It is not a
+verified unique-human metric: visitors can clear local storage, and automated
+actors may attempt to create identifiers. It does not store IP addresses,
+user-agent strings, cookies, or cross-article identifiers. Private Cloudflare
+Web Analytics remains the authoritative internal analytics source.
 
 ## Cloudflare Pages deployment
 
