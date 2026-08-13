@@ -12,6 +12,7 @@ export const PUBLISHED_ARTICLE_SLUGS = new Set([
   "how-the-brain-makes-decisions",
   "how-to-stop-overthinking-a-decision",
   "sunk-cost-fallacy",
+  "paradox-of-choice",
 ]);
 
 function jsonResponse(payload, status = 200, extraHeaders = {}) {

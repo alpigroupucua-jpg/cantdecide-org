@@ -16,6 +16,7 @@ import worker from "../server/index.mjs";
 const ARTICLE_SLUG = "the-invisible-push";
 const ANALYSIS_PARALYSIS_SLUG = "how-to-stop-overthinking-a-decision";
 const SUNK_COST_SLUG = "sunk-cost-fallacy";
+const PARADOX_OF_CHOICE_SLUG = "paradox-of-choice";
 const FIRST_VISITOR = "d9428888-122b-4a9f-8f61-21c9f3a6f11d";
 const SECOND_VISITOR = "a8098c1a-f86e-4f9d-9bb4-74f7d36b3536";
 
@@ -128,6 +129,15 @@ test("the sunk cost fallacy article is accepted as published", async () => {
   );
   assert.equal(result.status, 200);
   assert.equal(result.body.slug, SUNK_COST_SLUG);
+});
+
+test("the paradox of choice article is accepted as published", async () => {
+  assert.equal(PUBLISHED_ARTICLE_SLUGS.has(PARADOX_OF_CHOICE_SLUG), true);
+  const result = await json(
+    await callApi(new MockD1(), "GET", undefined, undefined, PARADOX_OF_CHOICE_SLUG)
+  );
+  assert.equal(result.status, 200);
+  assert.equal(result.body.slug, PARADOX_OF_CHOICE_SLUG);
 });
 
 test("POST counts once per token during the deduplication period", async () => {
