@@ -6,6 +6,19 @@ const LEGACY_DECISION_SCIENCE_PATHS = new Set([
   "/know-yourself.html",
 ]);
 
+const STATIC_PAGE_REDIRECTS = new Map([
+  ["/contact.html", "/contact"],
+  ["/contact/", "/contact"],
+  ["/mission.html", "/mission"],
+  ["/mission/", "/mission"],
+  ["/privacy.html", "/privacy"],
+  ["/privacy/", "/privacy"],
+  ["/terms.html", "/terms"],
+  ["/terms/", "/terms"],
+  ["/responsible-use.html", "/responsible-use"],
+  ["/responsible-use/", "/responsible-use"],
+]);
+
 function articleSlugFromPath(pathname) {
   const prefix = "/api/views/";
   if (!pathname.startsWith(prefix)) {
@@ -27,6 +40,13 @@ function articleSlugFromPath(pathname) {
 export default {
   async fetch(request, env) {
     const url = new URL(request.url);
+
+    const cleanStaticPath = STATIC_PAGE_REDIRECTS.get(url.pathname);
+    if (cleanStaticPath) {
+      const redirectUrl = new URL(cleanStaticPath, request.url);
+      redirectUrl.search = url.search;
+      return Response.redirect(redirectUrl, 301);
+    }
 
     if (LEGACY_DECISION_SCIENCE_PATHS.has(url.pathname)) {
       const redirectUrl = new URL("/decision-science/", request.url);

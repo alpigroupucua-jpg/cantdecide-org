@@ -395,6 +395,51 @@ test("the deployment worker routes only the view API through the function", asyn
   }
   assert.deepEqual(assetRequests, []);
 
+  for (const [legacyPath, cleanPath] of [
+    ["/contact.html", "/contact"],
+    ["/contact/", "/contact"],
+    ["/mission.html", "/mission"],
+    ["/mission/", "/mission"],
+    ["/privacy.html", "/privacy"],
+    ["/privacy/", "/privacy"],
+    ["/terms.html", "/terms"],
+    ["/terms/", "/terms"],
+    ["/responsible-use.html", "/responsible-use"],
+    ["/responsible-use/", "/responsible-use"],
+  ]) {
+    const redirectResponse = await worker.fetch(
+      new Request(`https://cantdecide.org${legacyPath}?from=test`),
+      environment
+    );
+    assert.equal(redirectResponse.status, 301);
+    assert.equal(
+      redirectResponse.headers.get("Location"),
+      `https://cantdecide.org${cleanPath}?from=test`
+    );
+  }
+  assert.deepEqual(assetRequests, []);
+
+  for (const cleanPath of [
+    "/contact",
+    "/mission",
+    "/privacy",
+    "/terms",
+    "/responsible-use",
+  ]) {
+    const cleanResponse = await worker.fetch(
+      new Request(`https://cantdecide.org${cleanPath}`),
+      environment
+    );
+    assert.equal(cleanResponse.status, 200);
+  }
+  assert.deepEqual(assetRequests, [
+    "/contact",
+    "/mission",
+    "/privacy",
+    "/terms",
+    "/responsible-use",
+  ]);
+
   const sectionResponse = await worker.fetch(
     new Request("https://cantdecide.org/decision-science/"),
     environment
@@ -407,6 +452,11 @@ test("the deployment worker routes only the view API through the function", asyn
   );
   assert.equal(articleResponse.status, 200);
   assert.deepEqual(assetRequests, [
+    "/contact",
+    "/mission",
+    "/privacy",
+    "/terms",
+    "/responsible-use",
     "/decision-science/",
     "/decision-science/the-invisible-push/",
   ]);
@@ -417,6 +467,11 @@ test("the deployment worker routes only the view API through the function", asyn
   );
   assert.equal(assetResponse.status, 200);
   assert.deepEqual(assetRequests, [
+    "/contact",
+    "/mission",
+    "/privacy",
+    "/terms",
+    "/responsible-use",
     "/decision-science/",
     "/decision-science/the-invisible-push/",
     "/assets/css/styles.css",
@@ -428,6 +483,11 @@ test("the deployment worker routes only the view API through the function", asyn
   );
   assert.equal(missingResponse.status, 200);
   assert.deepEqual(assetRequests, [
+    "/contact",
+    "/mission",
+    "/privacy",
+    "/terms",
+    "/responsible-use",
     "/decision-science/",
     "/decision-science/the-invisible-push/",
     "/assets/css/styles.css",
