@@ -26,6 +26,7 @@ const articleUrls = [
   "https://cantdecide.org/decision-science/sunk-cost-fallacy/",
   "https://cantdecide.org/decision-science/paradox-of-choice/",
   "https://cantdecide.org/decision-science/decision-fatigue/",
+  "https://cantdecide.org/decision-science/planning-fallacy/",
 ];
 
 function read(relativePath) {

@@ -1131,6 +1131,13 @@ html[data-decision="no"] .decision-message-result--no {
   }
 }
 
+@media (max-width: 22rem) {
+  .article-header h1.article-title--planning-fallacy {
+    font-size: 2.4rem;
+    overflow-wrap: normal;
+  }
+}
+
 @media (max-height: 50rem) and (min-width: 43rem) {
   .decision-main {
     padding-top: 1.5rem;
