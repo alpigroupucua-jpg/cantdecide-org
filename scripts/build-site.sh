@@ -25,9 +25,10 @@ do
   cp "$project_dir/$file" "$client_dir/$file"
 done
 
-mkdir -p "$client_dir/assets" "$client_dir/decision-science"
+mkdir -p "$client_dir/assets" "$client_dir/decision-science" "$client_dir/habits"
 cp -R "$project_dir/assets/." "$client_dir/assets/"
 cp -R "$project_dir/decision-science/." "$client_dir/decision-science/"
+cp -R "$project_dir/habits/." "$client_dir/habits/"
 
 cp "$project_dir/server/index.mjs" "$server_dir/index.js"
 cp \

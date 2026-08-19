@@ -19,6 +19,7 @@ const SUNK_COST_SLUG = "sunk-cost-fallacy";
 const PARADOX_OF_CHOICE_SLUG = "paradox-of-choice";
 const DECISION_FATIGUE_SLUG = "decision-fatigue";
 const PLANNING_FALLACY_SLUG = "planning-fallacy";
+const PROCRASTINATION_SLUG = "why-we-procrastinate";
 const FIRST_VISITOR = "d9428888-122b-4a9f-8f61-21c9f3a6f11d";
 const SECOND_VISITOR = "a8098c1a-f86e-4f9d-9bb4-74f7d36b3536";
 
@@ -149,6 +150,15 @@ test("the decision fatigue article is accepted as published", async () => {
   );
   assert.equal(result.status, 200);
   assert.equal(result.body.slug, DECISION_FATIGUE_SLUG);
+});
+
+test("the procrastination article is accepted as published", async () => {
+  assert.equal(PUBLISHED_ARTICLE_SLUGS.has(PROCRASTINATION_SLUG), true);
+  const result = await json(
+    await callApi(new MockD1(), "GET", undefined, undefined, PROCRASTINATION_SLUG)
+  );
+  assert.equal(result.status, 200);
+  assert.equal(result.body.slug, PROCRASTINATION_SLUG);
 });
 
 test("the planning fallacy article is accepted as published", async () => {

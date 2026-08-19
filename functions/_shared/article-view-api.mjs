@@ -15,6 +15,7 @@ export const PUBLISHED_ARTICLE_SLUGS = new Set([
   "paradox-of-choice",
   "decision-fatigue",
   "planning-fallacy",
+  "why-we-procrastinate",
 ]);
 
 function jsonResponse(payload, status = 200, extraHeaders = {}) {
