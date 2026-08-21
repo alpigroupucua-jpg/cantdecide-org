@@ -27,6 +27,7 @@ const articleUrls = [
   "https://cantdecide.org/decision-science/paradox-of-choice/",
   "https://cantdecide.org/decision-science/decision-fatigue/",
   "https://cantdecide.org/decision-science/planning-fallacy/",
+  "https://cantdecide.org/decision-science/outcome-bias/",
   "https://cantdecide.org/habits/why-we-procrastinate/",
 ];
 

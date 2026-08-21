@@ -16,6 +16,7 @@ export const PUBLISHED_ARTICLE_SLUGS = new Set([
   "decision-fatigue",
   "planning-fallacy",
   "why-we-procrastinate",
+  "outcome-bias",
 ]);
 
 function jsonResponse(payload, status = 200, extraHeaders = {}) {
