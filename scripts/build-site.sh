@@ -20,7 +20,8 @@ for file in \
   sitemap.xml \
   _headers \
   _redirects \
-  _routes.json
+  _routes.json \
+  e2174ba6f8575b7658f2f2027a82768d.txt
 do
   cp "$project_dir/$file" "$client_dir/$file"
 done

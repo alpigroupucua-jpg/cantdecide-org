@@ -150,6 +150,19 @@ Prepare the connected Sites deployment output with:
 
 `./scripts/build-site.sh`
 
+## IndexNow submission
+
+The repository includes a root verification key and a deliberately manual
+submission script. After publishing a changed or new canonical page, submit
+only the affected URLs that already appear in `sitemap.xml`:
+
+`node scripts/submit-indexnow.mjs https://cantdecide.org/decision-science/example/`
+
+The script rejects off-domain URLs, query strings, fragments, URLs missing from
+the sitemap, and batches larger than 100. It is not called on page requests or
+on every deployment, which avoids duplicate and spam-like submissions. Keep the
+existing key file and the key in the script synchronized if the key is rotated.
+
 ## Publishing another Decision Science article
 
 To enable the counter on a newly published article:

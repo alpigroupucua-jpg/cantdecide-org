@@ -300,6 +300,46 @@ html[data-decision="no"] {
   text-align: center;
 }
 
+.home-discovery {
+  padding: clamp(3.5rem, 8vw, 6.5rem) max(var(--page-pad), env(safe-area-inset-right)) clamp(3.5rem, 8vw, 6.5rem) max(var(--page-pad), env(safe-area-inset-left));
+  border-top: 1px solid currentColor;
+}
+
+.home-discovery__inner {
+  width: min(100%, 68rem);
+  margin: 0 auto;
+}
+
+.home-discovery h2 {
+  max-width: 48rem;
+  margin: 0;
+  font-family: var(--display-font);
+  font-size: clamp(2rem, 5vw, 4.3rem);
+  letter-spacing: -0.04em;
+  line-height: 1.05;
+}
+
+.home-discovery__inner > p:not(.eyebrow) {
+  max-width: 48rem;
+  margin: 1.4rem 0 0;
+  font-size: clamp(1.03rem, 1.5vw, 1.18rem);
+}
+
+.home-discovery__links {
+  margin-top: clamp(2rem, 5vw, 3.5rem);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr));
+  border-top: 1px solid currentColor;
+}
+
+.home-discovery__links a {
+  min-width: 0;
+  padding: 1rem 0;
+  border-bottom: 1px solid currentColor;
+  font-weight: 700;
+  overflow-wrap: anywhere;
+}
+
 .reflection-prompt {
   margin: 0 0 clamp(1.25rem, 3vh, 2rem);
   color: var(--text);
@@ -709,6 +749,7 @@ html[data-decision="no"] .decision-message-result--no {
 }
 
 .article-body,
+.article-related,
 .article-source,
 .article-footer-navigation {
   max-width: 49rem;
@@ -778,6 +819,39 @@ html[data-decision="no"] .decision-message-result--no {
 
 .article-body blockquote p + p {
   margin-top: 0.75rem;
+}
+
+.article-related {
+  margin-top: clamp(4rem, 9vw, 6rem);
+  padding-top: clamp(1.5rem, 4vw, 2.5rem);
+  border-top: 1px solid var(--border);
+}
+
+.article-related h2 {
+  margin: 0;
+  font-family: var(--display-font);
+  font-size: clamp(1.8rem, 4vw, 2.7rem);
+  line-height: 1.12;
+}
+
+.article-related ul {
+  margin: 1.25rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.article-related li {
+  border-top: 1px solid var(--border);
+}
+
+.article-related li:last-child {
+  border-bottom: 1px solid var(--border);
+}
+
+.article-related a {
+  display: block;
+  padding: 0.9rem 0;
+  font-weight: 700;
 }
 
 .article-source {
