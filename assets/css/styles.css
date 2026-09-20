@@ -308,11 +308,12 @@ html[data-decision="no"] {
 .home-discovery__inner {
   width: min(100%, 68rem);
   margin: 0 auto;
+  text-align: center;
 }
 
 .home-discovery h2 {
   max-width: 48rem;
-  margin: 0;
+  margin: 0 auto;
   font-family: var(--display-font);
   font-size: clamp(2rem, 5vw, 4.3rem);
   letter-spacing: -0.04em;
@@ -321,7 +322,7 @@ html[data-decision="no"] {
 
 .home-discovery__inner > p:not(.eyebrow) {
   max-width: 48rem;
-  margin: 1.4rem 0 0;
+  margin: 1.4rem auto 0;
   font-size: clamp(1.03rem, 1.5vw, 1.18rem);
 }
 
